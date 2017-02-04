@@ -1,0 +1,31 @@
+# This section will apply to all profiles
+spring:
+    profiles.active: ${czActiveProfile}
+    devtools.restart.enabled: true
+    jpa:
+        hibernate:
+            ddl-auto: none
+            dialect: org.hibernate.dialect.MySQL5Dialect
+            naming.physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+            database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    mvc.dispatch-options-request: true
+server.port: 9000
+cors.allow:
+    origins: "*"
+    methods: "*"
+
+---
+
+# This section will apply only to dev profile
+spring:
+    profiles: dev
+    datasource:
+        url: jdbc:mysql://localhost:3306/catchzombie?autoReconnect=true
+        driver-class-name: com.mysql.jdbc.Driver
+        username: root
+        password: root
+        testWhileIdle: true
+        validationQuery: SELECT 1
+    jpa:
+        show-sql: true
+
