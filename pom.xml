@@ -1,40 +1,78 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
-   <parent>
-       <groupId>org.springframework.boot</groupId>
-       <artifactId>spring-boot-starter-parent</artifactId>
-       <version>1.4.3.RELEASE</version>
-   </parent>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.4.3.RELEASE</version>
+    </parent>
 
-  <groupId>com.catchzombie</groupId>
-  <artifactId>nexus</artifactId>
-  <packaging>pom</packaging>
-  <version>1.0.0-SNAPSHOT</version>
-  
-  <properties>
-      <java.version>1.8</java.version>
-      <hystrix.version>1.2.3.RELEASE</hystrix.version>
-  </properties>
-  <url>http://maven.apache.org</url>
-  <dependencies>
-       <!-- Spring Boot dependencies -->
+    <groupId>com.catchzombie</groupId>
+    <artifactId>nexus</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0.0-SNAPSHOT</version>
+
+    <properties>
+        <java.version>1.8</java.version>
+        <hystrix.version>1.2.3.RELEASE</hystrix.version>
+    </properties>
+    <url>http://maven.apache.org</url>
+
+    <repositories>
+        <repository>
+            <id>central</id>
+            <name>Central Repository</name>
+            <url>http://repo.maven.apache.org/maven2</url>
+            <layout>default</layout>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+    <dependencies>
+        <!-- Spring Boot dependencies -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
-        </dependency>	   
-  </dependencies>
-  <modules>
-    <module>nexus-common</module>
-    <module>nexus-core</module>
-    <module>nexus-dtos</module>
-    <module>nexus-service</module>
-    <module>nexus-api</module>
-  </modules>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.16.6</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+        </dependency>
+    </dependencies>
+    <modules>
+        <module>nexus-common</module>
+        <module>nexus-core</module>
+        <module>nexus-dtos</module>
+        <module>nexus-service</module>
+        <module>nexus-api</module>
+    </modules>
 </project>

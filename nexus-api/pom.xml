@@ -35,7 +35,8 @@
         </profile>
   </profiles>
     
-  <packaging>${packaging.type}</packaging>
+  <!--<packaging>${packaging.type}</packaging>-->
+    <packaging>${packaging.type}</packaging>
   <properties>
         <springfox.version>2.6.1</springfox.version>
         <start-class>com.catchzombie.nexus.api.ApplicationMain</start-class>
@@ -86,6 +87,12 @@
             <artifactId>spring-cloud-starter-hystrix-dashboard</artifactId>
             <version>${hystrix.version}</version>
         </dependency>
+        <dependency>
+            <groupId>javax.ws.rs</groupId>
+            <artifactId>javax.ws.rs-api</artifactId>
+            <version>2.0.1</version>
+        </dependency>
+
     </dependencies>
 
     <repositories>
