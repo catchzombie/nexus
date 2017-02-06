@@ -36,5 +36,6 @@
     <module>nexus-dtos</module>
     <module>nexus-service</module>
     <module>nexus-api</module>
+    <module>nexus-security</module>
   </modules>
 </project>
