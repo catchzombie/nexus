@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
  */
 
 @RestController
-public class HelloController {
+public class ApplicationController {
 
     @Value("${spring.profiles.active}")
     private String activeProfile;
