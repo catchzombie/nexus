@@ -16,7 +16,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EnableAutoConfiguration
 @ComponentScan("com.catchzombie")
 @EntityScan("com.catchzombie.models")
-@EnableJpaRepositories("com.catchzombie.repository")
+@EnableJpaRepositories("com.catchzombie.repositories")
 public class ApplicationMain extends SpringBootServletInitializer {
 
     @Override
