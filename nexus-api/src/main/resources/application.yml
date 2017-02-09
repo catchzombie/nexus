@@ -13,6 +13,10 @@ server.port: 9000
 cors.allow:
     origins: "*"
     methods: "*"
+redis:
+    host : localhost
+    port : 6379
+    expire : 1800
 
 ---
 
