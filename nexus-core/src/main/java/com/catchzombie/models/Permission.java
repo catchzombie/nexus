@@ -27,6 +27,7 @@ public class Permission extends AbstractPersistable<Long>{
     @Column(nullable = false)
     private String description;
 
+
     public String getTitle() {
         return title;
     }

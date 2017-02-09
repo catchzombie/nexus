@@ -18,11 +18,9 @@ import java.util.Set;
 /**
  * Created by ashsish on 6/2/17.
  */
-@Data
 @Entity
 @NoArgsConstructor
 @Table(name = "USERS")
-@JsonIgnoreProperties({"roles"})
 public class User extends AbstractPersistable<Long>  {
 
     /**
@@ -93,7 +91,7 @@ public class User extends AbstractPersistable<Long>  {
     /**
      * List of Role attached to the user
      */
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     @JoinTable(name = "MAPPING_USER_ROLE")
     private List<Role> roles = new ArrayList<Role>();
 

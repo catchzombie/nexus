@@ -12,7 +12,6 @@ import java.util.Set;
 /**
  * Created by ashsish on 7/2/17.
  */
-@Data
 @NoArgsConstructor
 @Entity
 @Table(name = "USER_CATEGORIES")

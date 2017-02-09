@@ -24,29 +24,30 @@ public class Role extends AbstractPersistable<Long> {
      */
     @NotEmpty
     @Column(unique = true,nullable = false)
-    private String name;
+    private String roleName;
 
     /**
      * List of Permission attached to the role
      */
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     @JoinTable(name = "MAPPING_ROLE_PERMISSION",joinColumns = {@JoinColumn(name = "role_id")},inverseJoinColumns = {@JoinColumn(name="permission_id")})
     private List<Permission> permissions = new ArrayList<Permission>();
 
     /**
      *
-     * @param name The name of the role
+     * @param roleName The name of the role
      */
-    public Role(String name) {
-        this.name = name;
+
+    public Role(String roleName) {
+        this.roleName = roleName;
     }
 
-    public String getName() {
-        return name;
+    public String getRoleName() {
+        return roleName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setRoleName(String roleName) {
+        this.roleName = roleName;
     }
 
     public List<Permission> getPermissions() {
