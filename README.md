@@ -1,5 +1,11 @@
 # nexus
 
+## Add following dependency
+- Create Database with name `catchzombie` or create your own and make changes in `nexus-api/src/main/resources/application.yml`.
+- Install redis server and provide host, port, expire in `nexus-api/src/main/resources/application.yml`.
+- For `dev` default value is localhost for both mysql and redis.
+- For `dev` mysql port is `3306` and redis port is `6379`.
+
 This project contains api part for nexus which contains core functionalities of catchzombie.
 
 #### Note:
