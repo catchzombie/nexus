@@ -1,15 +1,15 @@
 # nexus
 
+This project contains api part for nexus which contains core functionalities of catchzombie.
+
+#### Note:
+Running this project requires an environment variable of name `czActiveProfile` to be set to the active profile that you are running the application in `dev | prodtest | prod`. 
+
 ## Add following dependency
 - Create Database with name `catchzombie` or create your own and make changes in `nexus-api/src/main/resources/application.yml`.
 - Install redis server and provide host, port, expire in `nexus-api/src/main/resources/application.yml`.
 - For `dev` default value is localhost for both mysql and redis.
 - For `dev` mysql port is `3306` and redis port is `6379`.
-
-This project contains api part for nexus which contains core functionalities of catchzombie.
-
-#### Note:
-Running this project requires an environment variable of name `czActiveProfile` to be set to the active profile that you are running the application in `dev | prodtest | prod`. 
 
 ## Run within Intellij Idea
 - To run in Intellij Idea, create a new run configuration by going to `Run > Edit Configurations > Add New Configuration > Application`. 
