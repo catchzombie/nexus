@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.naming.AuthenticationException;
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 /**
@@ -41,9 +42,9 @@ public class UserController {
     }
 
     @RequestMapping(method = RequestMethod.POST, value ="/login")
-    public ResponseEntity<Void> login(@RequestBody @Valid LoginRequestDto loginRequest){
+    public ResponseEntity<Void> login(@RequestBody @Valid LoginRequestDto loginRequest, HttpServletRequest request){
         try {
-            czSecurityManager.login(loginRequest.getUsername(),loginRequest.getPassword());
+            czSecurityManager.login(loginRequest.getUsername(),loginRequest.getPassword(),request);
         } catch (AuthenticationException e) {
             e.printStackTrace();
             return new ResponseEntity<>(HttpStatus.FORBIDDEN);
