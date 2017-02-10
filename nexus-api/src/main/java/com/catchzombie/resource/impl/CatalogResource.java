@@ -1,11 +1,12 @@
 package com.catchzombie.resource.impl;
 
 import com.catchzombie.CatalogService;
+
 import com.catchzombie.request.impl.CategoryRequest;
 import com.catchzombie.request.impl.SwipeRequest;
 import com.catchzombie.resource.CzBaseResource;
-import com.catchzombie.response.CzResponse;
 import com.catchzombie.response.ResponseStatus;
+import com.catchzombie.response.CzResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

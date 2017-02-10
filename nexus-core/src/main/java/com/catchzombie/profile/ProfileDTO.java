@@ -1,6 +1,6 @@
 package com.catchzombie.profile;
 
-import com.catchzombie.aerospike.ProfileBio;
+import com.catchzombie.aerospike.impl.ProfileBio;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

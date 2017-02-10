@@ -1,4 +1,4 @@
-package com.catchzombie.aerospike;
+package com.catchzombie.aerospike.impl;
 
 import com.catchzombie.aerospike.CzRecord;
 import com.catchzombie.utils.Constants;
@@ -10,25 +10,28 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Map;
 import java.util.Set;
 
 /**
- * Created by shubham on 5/2/17.
+ * Created by shubham on 8/2/17.
  */
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@StorableRecord(setname = Constants.USERBIO_SETNAME,namespace = Constants.CZ_NAMESPACE)
-public class ProfileBio extends CzRecord {
-    @StorableBin(name="userId",type = StorableType.STRING)
+@StorableRecord(setname = Constants.MATCHESUNMATCHES_SETNAME,namespace = Constants.CZ_NAMESPACE)
+public class ProfileMatches extends CzRecord {
+
+    @StorableBin(name = "userId",type = StorableType.STRING)
     private String userId;
 
-    @StorableBin(name = "bio",type = StorableType.STRING)
-    private String userBio;
+    @StorableBin(name = "matches",type = StorableType.SET)
+    private Set<String> matches;
 
-    @StorableBin(name = "imageLinks",type = StorableType.SET)
-    private Set<String> userImageUrls;
+    @StorableBin(name = "unmatches",type = StorableType.MAP)
+    private Map<String,Long> unmatches;
+
 
     @Override
     public String getAerospikeKey() {
