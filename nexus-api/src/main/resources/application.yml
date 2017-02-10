@@ -1,6 +1,8 @@
 # This section will apply to all profiles
 spring:
     profiles.active: ${czActiveProfile}
+    application:
+            name: czws
     devtools.restart.enabled: true
     jpa:
         hibernate:
@@ -10,11 +12,14 @@ spring:
             database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     mvc.dispatch-options-request: true
 server.port: 9000
+logging:
+    config: classpath:logback.xml
 cors.allow:
     origins: "*"
     methods: "*"
 redis:
     host : localhost
+    password:
     port : 6379
     expire : 1800
 

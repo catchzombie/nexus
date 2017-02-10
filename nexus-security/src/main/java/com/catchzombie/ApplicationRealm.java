@@ -10,6 +10,8 @@ import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.util.ByteSource;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import java.util.LinkedHashSet;
@@ -25,6 +27,8 @@ public class ApplicationRealm extends AuthorizingRealm{
     @Autowired
     UserRepository userRepository;
 
+    private static Logger logger = LoggerFactory.getLogger(ApplicationRealm.class);
+
     /**
      * List of roles to shiro of user
      *
@@ -33,7 +37,7 @@ public class ApplicationRealm extends AuthorizingRealm{
      */
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
-
+        logger.info("Inside doGetAuthorizationInfo");
         String email = (String) principals.getPrimaryPrincipal();
         User user = userRepository.findByEmail(email);
         if(user==null){
@@ -68,6 +72,7 @@ public class ApplicationRealm extends AuthorizingRealm{
      */
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
+        logger.info("Inside doGetAuthenticationInfo");
         UsernamePasswordToken userNamePassword = (UsernamePasswordToken) token;
         String email = userNamePassword.getUsername();
         if(email==null){
@@ -77,6 +82,7 @@ public class ApplicationRealm extends AuthorizingRealm{
         if(user==null){
             throw new AuthenticationException("No User found, cannot login");
         }
+        logger.debug("Returning principal"+email);
         return new SimpleAuthenticationInfo(email,user.getPassword().toCharArray(), ByteSource.Util.bytes(email),getName());
     }
 }

@@ -12,6 +12,8 @@ import org.apache.shiro.web.session.mgt.DefaultWebSessionManager;
 import org.crazycake.shiro.RedisCacheManager;
 import org.crazycake.shiro.RedisManager;
 import org.crazycake.shiro.RedisSessionDAO;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
@@ -30,6 +32,8 @@ import java.util.Map;
 
 @Configuration
 public class ShiroConfiguration {
+
+    private static final Logger logger = LoggerFactory.getLogger(ShiroConfiguration.class);
 
     @Bean(name = "securityManager")
     @DependsOn(value = {"sessionManager", "redisCacheManager"})
@@ -91,6 +95,7 @@ public class ShiroConfiguration {
     public DefaultWebSessionManager sessionManager(SessionDAO sessionDao) {
         final DefaultWebSessionManager sessionManager
                 = new DefaultWebSessionManager();
+        logger.info("Initializing session manager");
         sessionManager.setSessionDAO(sessionDao);
         return sessionManager;
     }
@@ -99,6 +104,7 @@ public class ShiroConfiguration {
     @DependsOn(value = "redisManager")
     public SessionDAO sessionDAO(RedisManager redisManager){
         final RedisSessionDAO redisSessionDAO = new RedisSessionDAO();
+        logger.info("Initializing redis session dao");
         redisSessionDAO.setRedisManager(redisManager);
         return redisSessionDAO;
     }
@@ -115,9 +121,12 @@ public class ShiroConfiguration {
     public RedisManager redisManager(Environment environment) {
         final RedisManager redisManager = new RedisManager();
         String host = environment.getProperty("redis.host");
+        String password = environment.getProperty("redis.password");
         int port = Integer.parseInt(environment.getProperty("redis.port"));
         int expire = Integer.parseInt(environment.getProperty("redis.expire"));
+        logger.info("Initializing redis manager with host: {} port: {} expire: {}",host, port, expire);
         redisManager.setHost(host);
+        redisManager.setPassword(password);
         redisManager.setPort(port);
         redisManager.setExpire(expire);
         return redisManager;

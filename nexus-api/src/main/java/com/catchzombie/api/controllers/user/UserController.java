@@ -53,7 +53,11 @@ public class UserController {
 
     @RequestMapping(method = RequestMethod.GET,value = "/logout")
     public ResponseEntity<Void> logout(){
-        czSecurityManager.logout();
+        try {
+            czSecurityManager.logout();
+        } catch (AuthenticationException e) {
+            e.printStackTrace();
+        }
         return new ResponseEntity<>(HttpStatus.ACCEPTED);
     }
 
