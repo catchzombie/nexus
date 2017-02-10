@@ -1,6 +1,6 @@
 package com.catchzombie.request.impl;
 
-import com.catchzombie.profile.ProfileDTO;
+import com.catchzombie.dtos.profile.ProfileDTO;
 import com.catchzombie.request.CzBaseRequest;
 import com.catchzombie.utils.Tuple;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;

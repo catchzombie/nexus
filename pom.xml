@@ -66,13 +66,16 @@
         <dependency>
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
+            <version>1.2.16</version>
         </dependency>
     </dependencies>
-    <modules>
-        <module>nexus-common</module>
-        <module>nexus-core</module>
-        <module>nexus-dtos</module>
-        <module>nexus-service</module>
-        <module>nexus-api</module>
-    </modules>
+
+  <modules>
+    <module>nexus-common</module>
+    <module>nexus-core</module>
+    <module>nexus-dtos</module>
+    <module>nexus-service</module>
+    <module>nexus-api</module>
+    <module>nexus-security</module>
+  </modules>
 </project>

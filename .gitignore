@@ -39,3 +39,4 @@ overridedb.*
 dump.rdb
 transaction-logs
 *.log
+nexus-security/src/test/
