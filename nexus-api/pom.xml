@@ -38,7 +38,7 @@
   <packaging>${packaging.type}</packaging>
   <properties>
         <springfox.version>2.6.1</springfox.version>
-        <start-class>com.catchzombie.nexus.api.ApplicationMain</start-class>
+        <start-class>com.catchzombie.api.ApplicationMain</start-class>
   </properties>  
     <dependencies>
         <dependency>

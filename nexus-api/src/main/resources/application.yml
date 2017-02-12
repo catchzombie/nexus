@@ -12,6 +12,8 @@ spring:
             database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     mvc.dispatch-options-request: true
 server.port: 9000
+swagger:
+    enabled: true
 logging:
     config: classpath:logback.xml
 cors.allow:
