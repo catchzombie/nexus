@@ -39,7 +39,18 @@
   <properties>
         <springfox.version>2.6.1</springfox.version>
         <start-class>com.catchzombie.api.ApplicationMain</start-class>
-  </properties>  
+  </properties>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>Finchley.RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
     <dependencies>
         <dependency>
             <groupId>com.catchzombie</groupId>
@@ -90,6 +101,14 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-hystrix-dashboard</artifactId>
             <version>${hystrix.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-config</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
     </dependencies>
 
