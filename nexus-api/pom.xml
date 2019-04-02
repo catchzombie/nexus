@@ -39,7 +39,7 @@
   <properties>
         <springfox.version>2.6.1</springfox.version>
         <start-class>com.catchzombie.api.ApplicationMain</start-class>
-  </properties>  
+  </properties>
     <dependencies>
         <dependency>
             <groupId>com.catchzombie</groupId>
