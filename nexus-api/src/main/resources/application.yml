@@ -41,7 +41,7 @@ spring:
         url: jdbc:mysql://localhost:3306/catchzombie?autoReconnect=true
         driver-class-name: com.mysql.jdbc.Driver
         username: root
-        password: rootroot
+        password:
         testWhileIdle: true
         validationQuery: SELECT 1
 
