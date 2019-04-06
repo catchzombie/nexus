@@ -1,5 +1,6 @@
 package com.catchzombie.services.user;
 
+import com.catchzombie.exceptions.UserInformationException;
 import com.catchzombie.models.User;
 
 /**
@@ -7,8 +8,12 @@ import com.catchzombie.models.User;
  */
 public interface IUserService {
 
-    void saveUser(User user);
+    void saveUser(User user) throws UserInformationException;
 
     User getUser(String email);
+
+    void deleteUser(String email);
+
+    void updateUser(User user) throws UserInformationException;
 
 }

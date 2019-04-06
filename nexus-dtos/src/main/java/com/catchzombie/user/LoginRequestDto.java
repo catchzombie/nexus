@@ -8,17 +8,17 @@ import javax.validation.constraints.NotNull;
 public class LoginRequestDto {
 
     @NotNull
-    String username;
+    String email;
 
     @NotNull
     String password;
 
-    public String getUsername() {
-        return username;
+    public String getEmail() {
+        return email;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPassword() {
