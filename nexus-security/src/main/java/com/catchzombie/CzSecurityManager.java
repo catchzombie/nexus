@@ -72,7 +72,7 @@ public class CzSecurityManager {
             throw new AuthenticationException();
         }
         String email = (String) currentUser.getPrincipal();
-        return userRepository.findByEmail(email);
+        return userRepository.findFirstByEmail(email);
     }
 
     private void setLegacySessionInfo(HttpServletRequest request) throws AuthenticationException {
@@ -82,6 +82,6 @@ public class CzSecurityManager {
         session.setAttribute(SessionParams.CONTACT_NUMBER,user.getMobileNo());
         session.setAttribute(SessionParams.IMAGE_URL,user.getImageUrl());
         session.setAttribute(SessionParams.ROLES, StringUtils.join(user.getRoles(),","));
-        session.setAttribute(SessionParams.USER_CATEGORIES,StringUtils.join(user.getUserCategories(),","));
+        session.setAttribute(SessionParams.USER_CATEGORIES,StringUtils.join(user.getUserCategory(),","));
     }
 }

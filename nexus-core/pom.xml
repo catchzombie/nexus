@@ -11,18 +11,7 @@
     <artifactId>nexus-core</artifactId>
     <dependencies>
 
-        <!--<dependency>-->
-            <!--<groupId>org.projectlombok</groupId>-->
-            <!--<artifactId>lombok</artifactId>-->
-            <!--<version>1.16.12</version>-->
-            <!--<scope>provided</scope>-->
-        <!--</dependency>-->
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.18.4</version>
-            <scope>provided</scope>
-        </dependency>
+
         <dependency>
             <groupId>com.catchzombie</groupId>
             <artifactId>nexus-common</artifactId>
@@ -41,6 +30,7 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>6.0.5</version>
+            <!--<version>8.0.11</version>-->
         </dependency>
 
     </dependencies>

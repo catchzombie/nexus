@@ -46,16 +46,16 @@ public class ApplicationRealm extends AuthorizingRealm{
         int totalRoles = user.getRoles().size();
         Set<String> roleNames = new LinkedHashSet<>(totalRoles);
         Set<String> permissionNames = new LinkedHashSet<>();
-        if(totalRoles>0){
-            List<Role> roles = user.getRoles();
-            for(Role role : roles){
-                roleNames.add(role.getRoleName());
-                List<Permission> permissions = role.getPermissions();
-                for (Permission permission: permissions){
-                    permissionNames.add(permission.getTitle());
-                }
-            }
-        }
+//        if(totalRoles>0){
+//            List<Role> roles = user.getRoles();
+//            for(Role role : roles){
+//                roleNames.add(role.getRoleName());
+//                List<Permission> permissions = role.getPermissions();
+//                for (Permission permission: permissions){
+//                    permissionNames.add(permission.getTitle());
+//                }
+//            }
+//        }
         SimpleAuthorizationInfo authorizationInfo = new SimpleAuthorizationInfo(roleNames);
         authorizationInfo.setStringPermissions(permissionNames);
         return authorizationInfo;

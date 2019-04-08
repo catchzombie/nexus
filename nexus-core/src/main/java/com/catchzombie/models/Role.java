@@ -1,7 +1,6 @@
 package com.catchzombie.models;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
@@ -13,48 +12,26 @@ import java.util.List;
  * Created by ashsish on 6/2/17.
  */
 
-@Data
-@Entity
+@Getter
+@Setter
 @NoArgsConstructor
-@Table(name = "USERS_ROLE")
-public class Role extends AbstractPersistable<Long> {
+@AllArgsConstructor
+@Entity
+@Table(name = "role")
+public class Role extends AbstractPersistable<Integer> {
 
     /**
-     * Name of the role
+     * Name of the role. Default is general for seekers
      */
     @NotEmpty
-    @Column(unique = true,nullable = false)
+    @Column(unique = true,nullable = false, columnDefinition="default 'general'")
     private String roleName;
 
-    /**
-     * List of Permission attached to the role
-     */
-    @ManyToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-    @JoinTable(name = "MAPPING_ROLE_PERMISSION",joinColumns = {@JoinColumn(name = "role_id")},inverseJoinColumns = {@JoinColumn(name="permission_id")})
-    private List<Permission> permissions = new ArrayList<Permission>();
+//    /**
+//     * List of Permission attached to the role
+//     */
+//    @ManyToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+//    @JoinTable(name = "MAPPING_ROLE_PERMISSION",joinColumns = {@JoinColumn(name = "role_id")},inverseJoinColumns = {@JoinColumn(name="permission_id")})
+//    private List<Permission> permissions = new ArrayList<Permission>();
 
-    /**
-     *
-     * @param roleName The name of the role
-     */
-
-    public Role(String roleName) {
-        this.roleName = roleName;
-    }
-
-    public String getRoleName() {
-        return roleName;
-    }
-
-    public void setRoleName(String roleName) {
-        this.roleName = roleName;
-    }
-
-    public List<Permission> getPermissions() {
-        return permissions;
-    }
-
-    public void setPermissions(List<Permission> permissions) {
-        this.permissions = permissions;
-    }
 }
